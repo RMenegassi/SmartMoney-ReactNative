@@ -13,9 +13,3 @@ export const Saldo = styled.Text`
   color: black;
   align-self: center;
 `;
-
-export const Input = styled.TextInput`
-  border: 1px solid black;
-`;
-
-export const Botao = styled.Button``;

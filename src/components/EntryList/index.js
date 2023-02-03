@@ -3,7 +3,7 @@ import React from 'react';
 
 import {Container, Title, Texto} from './styles';
 
-const EntrySummary = () => {
+const EntryList = () => {
   const dados = [
     {id: 1, local: 'padaria 1', valor: 200},
     {id: 2, local: 'supermercado 2', valor: 500},
@@ -27,4 +27,4 @@ const EntrySummary = () => {
   );
 };
 
-export default EntrySummary;
+export default EntryList;

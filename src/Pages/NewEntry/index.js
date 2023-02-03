@@ -1,11 +1,14 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+
+import BalanceLabel from '../../components/BalanceLabel';
+
+import {Container} from './styles';
 
 const NewEntry = () => {
   return (
-    <View>
-      <Text>NewEntry</Text>
-    </View>
+    <Container>
+      <BalanceLabel />
+    </Container>
   );
 };
 

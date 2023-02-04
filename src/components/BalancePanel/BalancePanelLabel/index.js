@@ -2,13 +2,11 @@ import React from 'react';
 
 import {Container, Title, Saldo} from './styles';
 
-const BalancePanelLabel = () => {
-  const saldo = 2150.35;
-
+const BalancePanelLabel = ({currentBalance}) => {
   return (
     <Container>
       <Title>Saldo Inicial</Title>
-      <Saldo>R$ {saldo}</Saldo>
+      <Saldo>R$ {currentBalance}</Saldo>
     </Container>
   );
 };

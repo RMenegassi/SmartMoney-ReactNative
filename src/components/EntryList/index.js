@@ -3,14 +3,7 @@ import React from 'react';
 
 import {Container, Title, Texto} from './styles';
 
-const EntryList = () => {
-  const dados = [
-    {id: 1, local: 'padaria 1', valor: 200},
-    {id: 2, local: 'supermercado 2', valor: 500},
-    {id: 3, local: 'hamburgueria 1', valor: 100},
-    {id: 4, local: 'pizzaria 2', valor: 250},
-  ];
-
+const EntryList = ({dados}) => {
   return (
     <Container>
       <Title>Últimos Lançamentos</Title>

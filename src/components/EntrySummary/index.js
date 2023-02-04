@@ -3,14 +3,7 @@ import React from 'react';
 
 import {Container, Title, Texto} from './styles';
 
-const EntrySummary = () => {
-  const dados = [
-    {id: 1, category: 'Alimentos', valor: 200},
-    {id: 2, category: 'Aluguel', valor: 500},
-    {id: 3, category: 'Emprestimo', valor: 100},
-    {id: 4, category: 'Outros', valor: 250},
-  ];
-
+const EntrySummary = ({dados}) => {
   return (
     <Container>
       <Title>Categorias</Title>

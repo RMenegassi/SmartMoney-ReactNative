@@ -4,10 +4,12 @@ import BalanceLabel from '../../components/BalanceLabel';
 
 import {Container, Input, Botao} from './styles';
 
-const NewEntry = () => {
+const NewEntry = ({route}) => {
+  const currentBalance = route.params;
+
   return (
     <Container>
-      <BalanceLabel />
+      <BalanceLabel currentBalance={currentBalance} />
       <Input />
       <Input />
       <Botao title="GPS" />

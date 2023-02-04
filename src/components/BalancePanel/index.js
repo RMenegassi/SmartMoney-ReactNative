@@ -7,16 +7,16 @@ import BalancePanelLabel from './BalancePanelLabel';
 
 import {Container} from './styles';
 
-const BalancePanel = () => {
+const BalancePanel = ({currentBalance}) => {
   const navigation = useNavigation();
 
   return (
     <Container>
       <BalancePanelChart />
-      <BalancePanelLabel />
+      <BalancePanelLabel currentBalance={currentBalance} />
       <Button
         title="Adicionar"
-        onPress={() => navigation.navigate('NewEntry')}
+        onPress={() => navigation.navigate('NewEntry', currentBalance)}
       />
     </Container>
   );

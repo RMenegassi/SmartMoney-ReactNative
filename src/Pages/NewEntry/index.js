@@ -7,7 +7,10 @@ import {addEntry} from '../../services/Entries';
 import {Container, Input, Botao} from './styles';
 
 const NewEntry = ({route}) => {
-  const currentBalance = route.params;
+  const entry = route.params;
+
+  console.log(entry);
+  const currentBalance = entry.currentBalance;
 
   const [valor, setValor] = useState();
   const [categoria, setCategoria] = useState('');
@@ -24,10 +27,10 @@ const NewEntry = ({route}) => {
         disabled={valor && categoria ? false : true}
         onPress={() =>
           addEntry({
-            valor: valor,
+            amount: valor,
             category: categoria,
             id: valor,
-            local: `teste${valor}`,
+            address: `teste${valor}`,
           })
         }
       />

@@ -35,22 +35,19 @@ export const getEntries = async (days, category) => {
 
 export const addEntry = async entry => {
   let data = {};
+  console.log('entry  ', entry);
 
   try {
     data = {
-      ...entry,
-      entryAt: entry.entryAt || new Date(),
-      /*
+      entryAt: entry.entryAt,
       amount: entry.amount,
-      description: entry.description,
-      entryAt: entry.entryAt || new Date(),
+      description: entry.description || null,
       latitude: entry.latitude,
       longitude: entry.longitude,
-      address: entry.address ,
-      photo: entry.photo,
+      address: entry.address,
+      photo: entry.photo || null,
       isInit: entry.isInit || false,
       category: entry.category,
-      */
     };
 
     await firestore().collection('entries').add(data);
@@ -67,18 +64,11 @@ export const addEntry = async entry => {
 
 export const updateEntry = async entry => {
   let data = {};
+  console.log('entry', entry);
 
   try {
     data = {
-      amount: entry.amount,
-      description: entry.description,
-      entryAt: entry.entryAt || new Date(),
-      latitude: entry.latitude,
-      longitude: entry.longitude,
-      address: entry.address,
-      photo: entry.photo,
-      isInit: entry.isInit || false,
-      category: entry.category,
+      ...entry,
     };
 
     await firestore().collection('entries').doc(entry.id).update(data);

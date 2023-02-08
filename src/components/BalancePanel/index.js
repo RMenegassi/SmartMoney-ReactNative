@@ -18,7 +18,7 @@ const BalancePanel = ({currentBalance}) => {
       <LinearGradient colors={[theme.colors.violet, theme.colors.blue]}>
         <BalancePanelLabel currentBalance={currentBalance} />
       </LinearGradient>
-      <Botao onPress={() => navigation.navigate('NewEntry', {currentBalance})}>
+      <Botao onPress={() => navigation.navigate('NewEntry')}>
         <Icon name="add" size={40} color="white" />
       </Botao>
     </Container>

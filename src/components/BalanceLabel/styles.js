@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  align-items: center;
+  padding: 10px;
+`;
 
 export const Title = styled.Text`
-  font-size: 20px;
-  color: black;
-  align-self: center;
+  font-size: 15px;
+  color: white;
+  margin-bottom: 10px;
 `;
 
 export const Saldo = styled.Text`
   font-size: 25px;
-  color: black;
-  align-self: center;
+  color: white;
+  padding: 10px;
+  font-weight: 200;
 `;

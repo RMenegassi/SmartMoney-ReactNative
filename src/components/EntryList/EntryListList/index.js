@@ -15,10 +15,7 @@ const EntryListList = ({dados}) => {
         data={dados}
         keyExtractor={item => item.id}
         renderItem={({item, index}) => (
-          <Botao
-            onPress={() =>
-              navigation.navigate('NewEntry', {local: item.address})
-            }>
+          <Botao onPress={() => navigation.navigate('NewEntry', {item})}>
             <EntryListItem
               entry={item}
               isFirstItem={index === 0}

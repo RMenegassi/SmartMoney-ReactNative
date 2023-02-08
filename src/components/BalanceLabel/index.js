@@ -1,12 +1,20 @@
 import React from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 
-import {Container, Title, Saldo} from './styles';
+import {Container, Title, BoxSaldo, Saldo} from './styles';
+import {theme} from '../../styles/Theme';
 
-const BalanceLabel = ({currentBalance}) => {
+const BalanceLabel = () => {
+  const currentBalance = 2450.35;
+
   return (
     <Container>
       <Title>Saldo Atual</Title>
-      <Saldo>R$ {currentBalance}</Saldo>
+      <LinearGradient
+        colors={[theme.colors.violet, theme.colors.blue]}
+        style={{borderRadius: 10}}>
+        <Saldo>R$ {currentBalance}</Saldo>
+      </LinearGradient>
     </Container>
   );
 };

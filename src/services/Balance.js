@@ -99,14 +99,13 @@ export const getBalanceSumByCategory = async (days, showOthers = true) => {
     const data1 = _(entries).slice(0, othersLimit);
     const data2 = [
       {
-        category: {id: new Date()(), name: 'Outros', color: '#95a5a6'},
+        category: {id: new Date(), name: 'Outros', color: '#95a5a6'},
         amount: _(entries)
           .slice(othersLimit)
           .map(({amount}) => amount)
           .sum(),
       },
     ];
-
     entries = [...data1, ...data2];
   }
   console.log('getBalanceSumByCategory :: ', JSON.stringify(entries));

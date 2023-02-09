@@ -7,6 +7,7 @@ export const Title = styled.Text`
 `;
 
 export const Content = styled.View`
+  padding: 10px 0;
   flex-direction: row;
-  justify-content: space-between;
+  max-height: 150px;
 `;

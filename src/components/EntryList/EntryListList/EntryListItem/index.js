@@ -22,7 +22,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
       <Svg height={50} width={30}>
         {showBulletLine && (
           <Rect
-            x={9}
+            x={8.5}
             y={bulletLineY}
             width={1.5}
             height={bulletLineHeight}
@@ -33,15 +33,15 @@ const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
           cx={9}
           cy={25}
           r={8}
-          fill="blue"
+          fill={entry.category.color}
           stroke="#233240"
           strokeWidth={1.5}
         />
       </Svg>
       <BoxDados>
         <BoxPrincipal>
-          <TextoPrincipal>Name</TextoPrincipal>
-          <TextoPrincipal>Amount</TextoPrincipal>
+          <TextoPrincipal>{entry.category.name}</TextoPrincipal>
+          <TextoPrincipal>{entry.amount.toFixed(2)}</TextoPrincipal>
         </BoxPrincipal>
         <BoxSecundario>
           <Icon name="access-time" size={13} color="gray" />

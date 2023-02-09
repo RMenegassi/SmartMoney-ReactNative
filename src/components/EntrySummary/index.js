@@ -4,18 +4,23 @@ import EntrySummaryList from './EntrySummaryList';
 import EntrySummaryGraph from './EntrySummaryGraph';
 import DataList from '../Core/DataList';
 
+import useBalanceSumByCategory from '../../hooks/useBalanceSumByCategory';
+
 import {Title, Content} from './styles';
 
-const EntrySummary = ({days, dados, onPressActionButton}) => {
+const EntrySummary = ({days = 7, onPressActionButton}) => {
+  const [balanceSum] = useBalanceSumByCategory(days);
+  console.log('balanceSum :: ', balanceSum);
+
   return (
     <DataList
-      actionLabelText={7}
+      actionLabelText={days}
       actionButtonText={true}
       onPressActionButton={onPressActionButton}>
       <Title>Categorias</Title>
       <Content>
-        <EntrySummaryGraph />
-        <EntrySummaryList dados={dados} />
+        <EntrySummaryGraph dados={balanceSum} />
+        <EntrySummaryList dados={balanceSum} />
       </Content>
     </DataList>
   );

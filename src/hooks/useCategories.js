@@ -2,22 +2,29 @@ import {useState, useCallback} from 'react';
 
 import {useFocusEffect} from '@react-navigation/native';
 
-import {getDebitCategories, getCreditCategories} from '../services/Categories';
+import {
+  getDebitCategories,
+  getCreditCategories,
+  getAllCategories,
+} from '../services/Categories';
 
-const useCategories = positivo => {
+const useCategories = type => {
   const [categories, setCategories] = useState([]);
 
   useFocusEffect(
     useCallback(() => {
       const loadEntries = async () => {
-        const data = positivo
+        const data = !type
+          ? await getAllCategories()
+          : type
           ? await getCreditCategories()
           : await getDebitCategories();
+
         setCategories(data);
       };
 
       loadEntries();
-    }, [positivo]),
+    }, [type]),
   );
 
   return [categories];

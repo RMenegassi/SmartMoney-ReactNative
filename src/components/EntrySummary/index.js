@@ -6,9 +6,12 @@ import DataList from '../Core/DataList';
 
 import {Title, Content} from './styles';
 
-const EntrySummary = ({dados}) => {
+const EntrySummary = ({days, dados, onPressActionButton}) => {
   return (
-    <DataList actionLabelText={true} actionButtonText={true}>
+    <DataList
+      actionLabelText={7}
+      actionButtonText={true}
+      onPressActionButton={onPressActionButton}>
       <Title>Categorias</Title>
       <Content>
         <EntrySummaryGraph />

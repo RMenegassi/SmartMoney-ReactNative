@@ -4,12 +4,18 @@ import EntryListList from './EntryListList';
 import DataList from '../Core/DataList';
 
 import {Title} from './styles';
+import useEntries from '../../hooks/useEntries';
 
-const EntryList = ({dados}) => {
+const EntryList = ({days = 7, category, onPressActionButton}) => {
+  const [entries] = useEntries(days, category);
+
   return (
-    <DataList actionLabelText={true} actionButtonText={true}>
+    <DataList
+      actionLabelText={days}
+      actionButtonText={true}
+      onPressActionButton={onPressActionButton}>
       <Title>Últimos Lançamentos</Title>
-      <EntryListList dados={dados} />
+      <EntryListList dados={entries} />
     </DataList>
   );
 };

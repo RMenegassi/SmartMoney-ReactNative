@@ -3,7 +3,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {Container, BoxBotoes, Botao, Texto} from './styles';
 
-const DataList = ({children, actionLabelText, actionButtonText}) => {
+const DataList = ({
+  children,
+  actionLabelText,
+  actionButtonText,
+  onPressActionButton,
+}) => {
   return (
     <Container>
       {children}
@@ -12,12 +17,12 @@ const DataList = ({children, actionLabelText, actionButtonText}) => {
         <BoxBotoes>
           {actionLabelText && (
             <Botao>
-              <Texto>Últimos 7 dias</Texto>
+              <Texto>Últimos {actionLabelText} dias</Texto>
             </Botao>
           )}
 
           {actionButtonText && (
-            <Botao>
+            <Botao onPress={onPressActionButton}>
               <Icon name="add-box" color="white" size={10} />
               <Texto>Ver mais</Texto>
             </Botao>

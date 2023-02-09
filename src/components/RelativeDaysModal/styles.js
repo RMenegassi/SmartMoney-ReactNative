@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 
+export const DaysModal = styled.Modal``;
+
 export const Container = styled.View`
-  min-width: 300px;
+  flex: 1;
+  background-color: ${({theme}) => theme.colors.background};
 `;
 
 export const Botao = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.asphalt};
-  border-radius: 15px;
-  margin: 10px 25px;
-  padding: 10px 20px;
+
+  border-radius: 8px;
+  margin: 10px 15px;
+  padding: 20px 0;
 `;
 
 export const Texto = styled.Text`
-  text-align: center;
   color: white;
-  font-size: 28px;
+  text-align: center;
+  font-size: 20px;
 `;

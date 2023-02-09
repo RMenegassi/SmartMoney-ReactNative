@@ -11,7 +11,7 @@ const EntrySummaryList = ({dados}) => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <Texto>
-            {item.category} - R${item.amount}
+            {item.category.name} - R${item.amount}
           </Texto>
         )}
       />

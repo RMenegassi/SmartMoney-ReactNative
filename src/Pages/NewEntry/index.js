@@ -39,7 +39,9 @@ const NewEntry = ({route}) => {
       };
 
   const [valor, setValor] = useState(entry.amount);
-  const [categoria, setCategoria] = useState(entry.category || 'Selecione');
+  const [categoria, setCategoria] = useState(
+    entry.category || {id: null, name: 'Selecione'},
+  );
   const [dataEntry, setDataEntry] = useState(entry.entryAt);
   const [latitude, setLatitude] = useState(entry.latitude);
   const [longitude, setLongitude] = useState(entry.longitude);

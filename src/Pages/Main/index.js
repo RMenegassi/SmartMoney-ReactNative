@@ -8,7 +8,7 @@ import {Container} from './styles';
 
 import useEntries from '../../hooks/useEntries';
 
-const Main = () => {
+const Main = ({navigation}) => {
   const [entries, , ,] = useEntries();
 
   const currentBalance = 2450.35;
@@ -16,8 +16,11 @@ const Main = () => {
   return (
     <Container>
       <BalancePanel currentBalance={currentBalance} />
-      <EntrySummary dados={entries} />
-      <EntryList dados={entries} />
+      <EntrySummary
+        dados={entries}
+        onPressActionButton={() => navigation.navigate('Report')}
+      />
+      <EntryList onPressActionButton={() => navigation.navigate('Report')} />
     </Container>
   );
 };

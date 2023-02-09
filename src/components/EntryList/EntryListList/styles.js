@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Scroll = styled.SafeAreaView`
-  height: 200px;
+  max-height: 180px;
 `;
 
 export const Botao = styled.TouchableOpacity``;

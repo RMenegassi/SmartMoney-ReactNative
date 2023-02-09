@@ -1,25 +1,11 @@
 import React, {useState} from 'react';
-import {Modal, FlatList} from 'react-native';
-import ActionFooter, {
-  ActionPrimaryButton,
-} from '../../../components/Core/ActionFooter';
 
-import useCategories from '../../../hooks/useCategories';
+import RelativeCategoryModal from '../../../components/RelativeCategoryModal';
 
-import {
-  Container,
-  Botao,
-  Texto,
-  ContainerModal,
-  BotaoItem,
-  TextoModal,
-  BotaoFechar,
-  TextoFechar,
-} from './styles';
+import {Container, Botao, Texto} from './styles';
 
 const NewEntyrCategory = ({categoria, setCategoria, positivo}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [allCategories] = useCategories(positivo);
 
   const chooseItem = name => {
     setCategoria(name);
@@ -29,33 +15,15 @@ const NewEntyrCategory = ({categoria, setCategoria, positivo}) => {
   return (
     <Container>
       <Botao onPress={() => setModalVisible(!modalVisible)}>
-        <Texto>{categoria}</Texto>
+        <Texto>{categoria.name}</Texto>
       </Botao>
-      <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
-        <ContainerModal>
-          <FlatList
-            data={allCategories}
-            keyExtractor={item => item.id}
-            renderItem={({item}) => (
-              <BotaoItem onPress={() => chooseItem(item.name)}>
-                <TextoModal color={item.color}>{item.name}</TextoModal>
-              </BotaoItem>
-            )}
-          />
-        </ContainerModal>
-        <ActionFooter>
-          <ActionPrimaryButton
-            title="Fechar"
-            onPress={() => setModalVisible(!modalVisible)}
-          />
-        </ActionFooter>
-      </Modal>
+
+      <RelativeCategoryModal
+        isVisible={modalVisible}
+        type={positivo}
+        chooseItem={chooseItem}
+        setVisible={setModalVisible}
+      />
     </Container>
   );
 };

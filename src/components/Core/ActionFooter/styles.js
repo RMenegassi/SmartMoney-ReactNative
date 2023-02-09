@@ -5,6 +5,8 @@ export const Container = styled.View`
   flex-direction: row;
   padding: 20px 0px;
   justify-content: center;
+  width: 100%;
+  align-self: center;
 `;
 
 export const BotaoPrimary = styled.TouchableOpacity`

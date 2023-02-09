@@ -45,7 +45,7 @@ export const addEntry = async entry => {
       latitude: entry.latitude,
       longitude: entry.longitude,
       address: entry.address,
-      photo: entry.photo || null,
+      photo: entry.photo,
       isInit: entry.isInit || false,
       category: entry.category,
     };

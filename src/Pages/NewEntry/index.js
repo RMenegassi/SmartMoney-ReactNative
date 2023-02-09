@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
+import InputMoney from '../../components/Core/InputMoney';
 import NewEntryInput from './NewEntryInput';
 import NewEntyrCategory from './NewEntryCategory';
 import NewEntryDate from './NewEntryDate';
@@ -72,11 +73,11 @@ const NewEntry = ({route}) => {
     <Container>
       <ContainerPrincipal>
         <BalanceLabel />
-        <NewEntryInput
-          valor={valor}
-          setValor={setValor}
-          positivo={positivo}
-          setPositivo={setPositivo}
+        <InputMoney
+          value={valor}
+          setValue={setValor}
+          positive={positivo}
+          setPositive={setPositivo}
         />
         <NewEntyrCategory
           categoria={categoria}

@@ -6,6 +6,7 @@ import {
   getDebitCategories,
   getCreditCategories,
   getAllCategories,
+  getInitCategories,
 } from '../services/Categories';
 
 const useCategories = type => {
@@ -14,11 +15,14 @@ const useCategories = type => {
   useFocusEffect(
     useCallback(() => {
       const loadEntries = async () => {
-        const data = !type
-          ? await getAllCategories()
-          : type
-          ? await getCreditCategories()
-          : await getDebitCategories();
+        const data =
+          type === 'init'
+            ? await getInitCategories()
+            : !type
+            ? await getAllCategories()
+            : type
+            ? await getCreditCategories()
+            : await getDebitCategories();
 
         setCategories(data);
       };

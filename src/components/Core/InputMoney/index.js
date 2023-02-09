@@ -4,17 +4,17 @@ import CurrencyInput from 'react-native-currency-input';
 
 import {Container, ContainerInput, Botao, TextoCifrao} from './styles';
 
-const NewEntryInput = ({valor, setValor, positivo, setPositivo}) => {
+const InputMoney = ({value, setValue, positive, setPositive}) => {
   return (
     <Container>
       <ContainerInput>
-        <Botao onPress={() => setPositivo(!positivo)}>
-          <TextoCifrao positivo={positivo}>R$</TextoCifrao>
+        <Botao onPress={setPositive ? () => setPositive(!positive) : () => {}}>
+          <TextoCifrao positivo={positive}>R$</TextoCifrao>
         </Botao>
 
         <CurrencyInput
-          value={valor}
-          onChangeValue={setValor}
+          value={value}
+          onChangeValue={setValue}
           delimiter="."
           separator=","
           precision={2}
@@ -32,4 +32,4 @@ const NewEntryInput = ({valor, setValor, positivo, setPositivo}) => {
   );
 };
 
-export default NewEntryInput;
+export default InputMoney;

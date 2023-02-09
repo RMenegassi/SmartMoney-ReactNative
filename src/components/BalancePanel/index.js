@@ -3,15 +3,18 @@ import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import BalancePanelChart from './BalancePanelChart';
 import BalancePanelLabel from './BalancePanelLabel';
+
+import {useBalance} from '../../hooks/useBalance';
 
 import {Container, Botao} from './styles';
 
 import {theme} from '../../styles/Theme';
 
-const BalancePanel = ({currentBalance}) => {
+const BalancePanel = () => {
   const navigation = useNavigation();
+
+  const [currentBalance] = useBalance();
 
   return (
     <Container>

@@ -1,11 +1,12 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {Container, Title, BoxSaldo, Saldo} from './styles';
+import {useBalance} from '../../hooks/useBalance';
+import {Container, Title, Saldo} from './styles';
 import {theme} from '../../styles/Theme';
 
 const BalanceLabel = () => {
-  const currentBalance = 2450.35;
+  const [currentBalance] = useBalance(0);
 
   return (
     <Container>

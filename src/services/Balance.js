@@ -22,46 +22,6 @@ export const getBalance = async (untilDays = 0) => {
   }, 0);
 };
 
-export const getBalanceSumByDate = async days => {
-  let querySnapshot;
-
-  const startBalance = (await getBalance(days)) || 0;
-
-  if (days > 0) {
-    const date = moment().subtract(days, 'days').toDate();
-
-    querySnapshot = await firestore()
-      .collection('entries')
-      .orderBy('entryAt')
-      .startAt(date)
-      .get();
-  } else {
-    querySnapshot = await firestore()
-      .collection('entries')
-      .orderBy('entryAt')
-      .get();
-  }
-
-  let entries = querySnapshot.docs.map(documentSnapshot =>
-    documentSnapshot.data(),
-  );
-
-  entries = _(entries)
-    .groupBy(({entryAt}) => moment(entryAt.toDate()).format('YYYYMMDD'))
-    .map(entry => _.sumBy(entry, 'amount'))
-    .map((amount, index, collection) => {
-      return (
-        (index === 0 ? startBalance : 0) +
-        _.sum(_.slice(collection, 0, index)) +
-        amount
-      );
-    });
-
-  console.log('getBalanceSumByDate :: ', JSON.stringify(entries));
-
-  return entries;
-};
-
 export const getBalanceSumByCategory = async (days, showOthers = true) => {
   let querySnapshot;
 

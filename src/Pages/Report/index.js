@@ -47,6 +47,7 @@ const Report = ({navigation}) => {
       />
       <EntrySummary days={relativeDays} />
       <EntryList days={relativeDays} category={category} />
+
       <ActionFooter>
         <ActionPrimaryButton
           title="Fechar"

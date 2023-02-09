@@ -6,7 +6,7 @@ const BalancePanelLabel = ({currentBalance}) => {
   return (
     <Container>
       <Title>Saldo Inicial</Title>
-      <Saldo>R$ {currentBalance}</Saldo>
+      <Saldo>R$ {currentBalance.toFixed(2)}</Saldo>
     </Container>
   );
 };

@@ -5,6 +5,10 @@ export const Container = styled.View`
   flex: 1;
 `;
 
+export const ContainerContent = styled.View`
+  flex: 1;
+`;
+
 export const ButtonContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;

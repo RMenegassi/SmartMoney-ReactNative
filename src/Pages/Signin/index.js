@@ -12,10 +12,35 @@ import {
 
 import logo from '../../assets/logo-white.png';
 
+import {signIn as login} from '../../services/Auth';
+import {isInitialized} from '../../services/Welcome';
+
 const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+
+      const {loginSuccess} = await login({
+        email,
+        password,
+      });
+
+      if (loginSuccess === true) {
+        const initiated = await isInitialized();
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: initiated ? 'Main' : 'Welcome'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <Container behavior="padding">
@@ -38,7 +63,7 @@ const SignIn = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <BotaoEntrar onPress={() => {}}>
+      <BotaoEntrar onPress={onSubmit}>
         <TextoEntrar>{loading ? 'Carregando...' : 'Entrar'}</TextoEntrar>
       </BotaoEntrar>
       <BotaoSignUp

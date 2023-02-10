@@ -7,6 +7,7 @@ import {addEntry} from '../../services/Entries';
 import {Container, ImageContainer} from './styles';
 
 import useCategories from '../../hooks/useCategories';
+import {setInitialized} from '../../services/Welcome';
 
 import ActionFooter, {
   ActionPrimaryButton,
@@ -30,6 +31,7 @@ const Welcome = ({navigation}) => {
       address: null,
       photo: null,
     });
+    setInitialized();
 
     navigation.navigate('Main');
   };

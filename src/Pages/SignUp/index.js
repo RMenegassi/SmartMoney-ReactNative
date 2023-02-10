@@ -10,6 +10,8 @@ import {
   TextoSignUp,
 } from './styles';
 
+import {signUp as register} from '../../services/Auth';
+
 import logo from '../../assets/logo-white.png';
 
 const SignUp = ({navigation}) => {
@@ -17,6 +19,27 @@ const SignUp = ({navigation}) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+      const {registerSuccess} = await register({
+        email,
+        password,
+        name,
+      });
+
+      if (registerSuccess === true) {
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: 'Welcome'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <Container behavior="padding">
@@ -47,7 +70,7 @@ const SignUp = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <BotaoEntrar onPress={() => {}}>
+      <BotaoEntrar onPress={onSubmit}>
         <TextoEntrar>{loading ? 'Carregando...' : 'Criar conta'}</TextoEntrar>
       </BotaoEntrar>
       <BotaoSignUp

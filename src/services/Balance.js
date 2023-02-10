@@ -1,8 +1,10 @@
 import firestore from '@react-native-firebase/firestore';
 import moment from '../vendors/moment';
 import _ from 'lodash';
+import {getUserAuth} from './Auth';
 
 export const getBalance = async (untilDays = 0) => {
+  const userAuth = await getUserAuth();
   let querySnapshot;
 
   if (untilDays > 0) {
@@ -10,11 +12,15 @@ export const getBalance = async (untilDays = 0) => {
 
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .endBefore(date)
       .get();
   } else {
-    querySnapshot = await firestore().collection('entries').get();
+    querySnapshot = await firestore()
+      .collection('entries')
+      .where('userId', '==', userAuth)
+      .get();
   }
 
   return _(querySnapshot.docs).reduce((total, doc) => {
@@ -23,6 +29,7 @@ export const getBalance = async (untilDays = 0) => {
 };
 
 export const getBalanceSumByCategory = async (days, showOthers = true) => {
+  const userAuth = await getUserAuth();
   let querySnapshot;
 
   if (days > 0) {
@@ -30,12 +37,14 @@ export const getBalanceSumByCategory = async (days, showOthers = true) => {
 
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .startAt(date)
       .get();
   } else {
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .get();
   }

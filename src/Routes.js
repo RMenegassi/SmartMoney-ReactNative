@@ -2,13 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import SignIn from './Pages/Signin';
+import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import Main from './Pages/Main';
 import NewEntry from './Pages/NewEntry';
 import Report from './Pages/Report';
 import Welcome from './Pages/Welcome';
 import Loading from './Pages/Loading';
+
+import {isLogged} from './services/Auth';
+import {isInitialized} from './services/Welcome';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,13 +37,13 @@ const Routes = () => {
 
   useEffect(() => {
     const initialVerifications = async () => {
-      if (true) {
+      if (await isInitialized()) {
         setInitiated(true);
       }
 
-      /*if (await isLogged()) {
+      if (await isLogged()) {
         setLogged(true);
-      }*/
+      }
 
       setIsLoading(false);
     };

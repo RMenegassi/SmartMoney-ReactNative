@@ -9,7 +9,13 @@ import ActionFooter, {
   ActionPrimaryButton,
 } from '../../components/Core/ActionFooter';
 
-import {Container, ButtonContainer, Botao, Texto} from './styles';
+import {
+  Container,
+  ContainerContent,
+  ButtonContainer,
+  Botao,
+  Texto,
+} from './styles';
 
 const Report = ({navigation}) => {
   const [daysModalVisible, setDaysModalVisible] = useState(false);
@@ -23,31 +29,32 @@ const Report = ({navigation}) => {
 
   return (
     <Container>
-      <BalanceLabel />
-      <ButtonContainer>
-        <Botao onPress={() => setCategoryModalVisible(true)}>
-          <Texto>{category.name}</Texto>
-        </Botao>
-        <Botao onPress={() => setDaysModalVisible(true)}>
-          <Texto>Últimos {relativeDays} dias</Texto>
-        </Botao>
-      </ButtonContainer>
-      <RelativeDaysModal
-        isVisible={daysModalVisible}
-        setVisible={setDaysModalVisible}
-        onConfirm={setRelativeDays}
-      />
-      <RelativeCategoryModal
-        isVisible={categoryModalVisible}
-        chooseItem={categ => {
-          setCategory(categ);
-          setCategoryModalVisible(false);
-        }}
-        setVisible={setCategoryModalVisible}
-      />
-      <EntrySummary days={relativeDays} />
-      <EntryList days={relativeDays} category={category} />
-
+      <ContainerContent>
+        <BalanceLabel />
+        <ButtonContainer>
+          <Botao onPress={() => setCategoryModalVisible(true)}>
+            <Texto>{category.name}</Texto>
+          </Botao>
+          <Botao onPress={() => setDaysModalVisible(true)}>
+            <Texto>Últimos {relativeDays} dias</Texto>
+          </Botao>
+        </ButtonContainer>
+        <RelativeDaysModal
+          isVisible={daysModalVisible}
+          setVisible={setDaysModalVisible}
+          onConfirm={setRelativeDays}
+        />
+        <RelativeCategoryModal
+          isVisible={categoryModalVisible}
+          chooseItem={categ => {
+            setCategory(categ);
+            setCategoryModalVisible(false);
+          }}
+          setVisible={setCategoryModalVisible}
+        />
+        <EntrySummary days={relativeDays} />
+        <EntryList days={relativeDays} category={category} />
+      </ContainerContent>
       <ActionFooter>
         <ActionPrimaryButton
           title="Fechar"

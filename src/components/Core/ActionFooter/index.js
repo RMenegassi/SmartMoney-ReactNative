@@ -12,9 +12,12 @@ const ActionFooter = ({children}) => {
   return <Container>{children}</Container>;
 };
 
-export const ActionPrimaryButton = ({title, onPress}) => {
+export const ActionPrimaryButton = ({title, onPress, disabled}) => {
   return (
-    <BotaoPrimary onPress={onPress}>
+    <BotaoPrimary
+      onPress={onPress}
+      disabled={disabled}
+      style={{opacity: disabled ? 0.4 : 1}}>
       <TextoPrimary>{title}</TextoPrimary>
     </BotaoPrimary>
   );

@@ -26,9 +26,13 @@ const Main = ({navigation}) => {
       <ContainerContent>
         <BalancePanel />
         <EntrySummary
+          isMain={true}
           onPressActionButton={() => navigation.navigate('Report')}
         />
-        <EntryList onPressActionButton={() => navigation.navigate('Report')} />
+        <EntryList
+          isMain={true}
+          onPressActionButton={() => navigation.navigate('Report')}
+        />
       </ContainerContent>
       <ActionFooter>
         <ActionSecondaryButton title="Logout" onPress={onLogoutPress} />

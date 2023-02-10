@@ -8,11 +8,14 @@ import useBalanceSumByCategory from '../../hooks/useBalanceSumByCategory';
 
 import {Title, Content} from './styles';
 
-const EntrySummary = ({days = 7, onPressActionButton}) => {
+const EntrySummary = ({days = 7, onPressActionButton, isMain}) => {
   const [balanceSum] = useBalanceSumByCategory(days);
+  console.log('balanceSum :: ', balanceSum);
+  console.log('days ', days);
 
   return (
     <DataList
+      isMain={isMain}
       actionLabelText={days}
       actionButtonText={true}
       onPressActionButton={onPressActionButton}>

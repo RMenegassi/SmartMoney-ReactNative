@@ -3,7 +3,10 @@ import React from 'react';
 import Svg, {Circle, Rect} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import moment from '../../../../vendors/moment';
+
 import {currencyFormatter} from '../../../../vendors/currencyFormatter';
+import {dateFormatter} from '../../../../vendors/dateFormatter';
 
 import {
   Container,
@@ -46,10 +49,24 @@ const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
           <TextoPrincipal>{currencyFormatter(entry.amount)}</TextoPrincipal>
         </BoxPrincipal>
         <BoxSecundario>
-          <Icon name="access-time" size={13} color="gray" />
-          <TextoSecundario>EntryAt</TextoSecundario>
-          <Icon name="location-on" size={13} color="gray" />
-          <TextoSecundario>Address</TextoSecundario>
+          {entry.entryAt && (
+            <>
+              <Icon name="access-time" size={13} color="gray" />
+              <TextoSecundario>
+                {dateFormatter(entry.dateString)}
+              </TextoSecundario>
+            </>
+          )}
+          {entry.address && (
+            <>
+              <Icon name="location-on" size={13} color="gray" />
+              <TextoSecundario>
+                {entry.address.length > 25
+                  ? entry.address.substring(0, 25 - 3) + '...'
+                  : entry.address}
+              </TextoSecundario>
+            </>
+          )}
         </BoxSecundario>
       </BoxDados>
     </Container>

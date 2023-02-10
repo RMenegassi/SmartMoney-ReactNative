@@ -6,11 +6,12 @@ import DataList from '../Core/DataList';
 import {Title} from './styles';
 import useEntries from '../../hooks/useEntries';
 
-const EntryList = ({days = 7, category, onPressActionButton}) => {
+const EntryList = ({days = 7, category, onPressActionButton, isMain}) => {
   const [entries] = useEntries(days, category);
 
   return (
     <DataList
+      isMain={isMain}
       actionLabelText={days}
       actionButtonText={true}
       onPressActionButton={onPressActionButton}>

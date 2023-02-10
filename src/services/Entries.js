@@ -46,6 +46,7 @@ export const addEntry = async entry => {
   try {
     data = {
       entryAt: entry.entryAt,
+      dateString: entry.dateString,
       amount: entry.amount,
       description: entry.description || null,
       latitude: entry.latitude,

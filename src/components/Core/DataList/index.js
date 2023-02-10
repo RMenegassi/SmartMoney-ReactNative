@@ -8,6 +8,7 @@ const DataList = ({
   actionLabelText,
   actionButtonText,
   onPressActionButton,
+  isMain,
 }) => {
   return (
     <Container>
@@ -21,7 +22,7 @@ const DataList = ({
             </Botao>
           )}
 
-          {actionButtonText && (
+          {actionButtonText && isMain && (
             <Botao onPress={onPressActionButton}>
               <Icon name="add-box" color="white" size={10} />
               <Texto>Ver mais</Texto>

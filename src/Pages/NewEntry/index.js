@@ -3,7 +3,6 @@ import {useNavigation} from '@react-navigation/native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 import InputMoney from '../../components/Core/InputMoney';
-import NewEntryInput from './NewEntryInput';
 import NewEntyrCategory from './NewEntryCategory';
 import NewEntryDate from './NewEntryDate';
 import NewEntryAddress from './NewEntryAddress';
@@ -55,6 +54,7 @@ const NewEntry = ({route}) => {
       amount: positivo ? valor : valor * -1,
       category: categoria,
       entryAt: dataEntry,
+      dateString: String(dataEntry),
       latitude: latitude,
       longitude: longitude,
       address: endereco,

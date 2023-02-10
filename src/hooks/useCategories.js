@@ -18,7 +18,7 @@ const useCategories = type => {
         const data =
           type === 'init'
             ? await getInitCategories()
-            : !type
+            : type === undefined
             ? await getAllCategories()
             : type
             ? await getCreditCategories()

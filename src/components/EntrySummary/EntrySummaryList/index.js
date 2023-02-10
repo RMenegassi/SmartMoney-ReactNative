@@ -11,7 +11,13 @@ import {
   TextoAmount,
 } from './styles';
 
+import {currencyFormatter} from '../../../vendors/currencyFormatter';
+
 const EntrySummaryList = ({dados}) => {
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
   return (
     <Scroll>
       <ContainerLista>
@@ -32,7 +38,7 @@ const EntrySummaryList = ({dados}) => {
               </Svg>
 
               <TextoCategory>{item.category.name}</TextoCategory>
-              <TextoAmount> R${item.amount.toFixed(2)}</TextoAmount>
+              <TextoAmount>{currencyFormatter(item.amount)}</TextoAmount>
             </ContainerItens>
           )}
         />

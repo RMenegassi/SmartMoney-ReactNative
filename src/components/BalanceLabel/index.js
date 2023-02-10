@@ -5,6 +5,8 @@ import {useBalance} from '../../hooks/useBalance';
 import {Container, Title, Saldo} from './styles';
 import {theme} from '../../styles/Theme';
 
+import {currencyFormatter} from '../../vendors/currencyFormatter';
+
 const BalanceLabel = () => {
   const [currentBalance] = useBalance(0);
 
@@ -14,7 +16,7 @@ const BalanceLabel = () => {
       <LinearGradient
         colors={[theme.colors.violet, theme.colors.blue]}
         style={{borderRadius: 10}}>
-        <Saldo>R$ {currentBalance}</Saldo>
+        <Saldo>{currencyFormatter(currentBalance)}</Saldo>
       </LinearGradient>
     </Container>
   );

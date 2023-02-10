@@ -3,6 +3,8 @@ import React from 'react';
 import Svg, {Circle, Rect} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {currencyFormatter} from '../../../../vendors/currencyFormatter';
+
 import {
   Container,
   BoxDados,
@@ -41,7 +43,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
       <BoxDados>
         <BoxPrincipal>
           <TextoPrincipal>{entry.category.name}</TextoPrincipal>
-          <TextoPrincipal>{entry.amount.toFixed(2)}</TextoPrincipal>
+          <TextoPrincipal>{currencyFormatter(entry.amount)}</TextoPrincipal>
         </BoxPrincipal>
         <BoxSecundario>
           <Icon name="access-time" size={13} color="gray" />

@@ -10,7 +10,6 @@ import {Title, Content} from './styles';
 
 const EntrySummary = ({days = 7, onPressActionButton}) => {
   const [balanceSum] = useBalanceSumByCategory(days);
-  console.log('balanceSum :: ', balanceSum);
 
   return (
     <DataList

@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react';
+
+import {isLogged} from './services/Auth';
+import {isInitialized} from './services/Welcome';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -9,9 +13,6 @@ import NewEntry from './Pages/NewEntry';
 import Report from './Pages/Report';
 import Welcome from './Pages/Welcome';
 import Loading from './Pages/Loading';
-
-import {isLogged} from './services/Auth';
-import {isInitialized} from './services/Welcome';
 
 const Stack = createNativeStackNavigator();
 

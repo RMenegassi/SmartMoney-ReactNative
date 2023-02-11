@@ -1,10 +1,9 @@
-import {View} from 'react-native';
 import React, {useState} from 'react';
-
-import {Botao} from './styles';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+
+import {Container, Button} from './styles';
 
 const NewEntryDate = ({setDataEntry}) => {
   const [visible, setVisible] = useState(false);
@@ -15,10 +14,10 @@ const NewEntryDate = ({setDataEntry}) => {
   };
 
   return (
-    <View>
-      <Botao onPress={() => setVisible(true)}>
+    <Container>
+      <Button onPress={() => setVisible(true)}>
         <Icon name="today" size={30} color="white" />
-      </Botao>
+      </Button>
 
       <DateTimePickerModal
         isVisible={visible}
@@ -26,7 +25,7 @@ const NewEntryDate = ({setDataEntry}) => {
         onConfirm={confirmDate}
         onCancel={() => setVisible(false)}
       />
-    </View>
+    </Container>
   );
 };
 

@@ -1,20 +1,19 @@
-import {Image} from 'react-native';
 import React, {useState} from 'react';
-
-import Logo from '../../assets/logo-white.png';
-import {addEntry} from '../../services/Entries';
-
-import {Container, ImageContainer} from './styles';
 
 import useCategories from '../../hooks/useCategories';
 import {setInitialized} from '../../services/Welcome';
+import {addEntry} from '../../services/Entries';
 
+import WelcomeMessage from './WelcomeMessage';
+import WelcomeBalanceInput from './WelcomeBalanceInput';
 import ActionFooter, {
   ActionPrimaryButton,
 } from '../../components/Core/ActionFooter';
 
-import WelcomeMessage from './WelcomeMessage';
-import WelcomeBalanceInput from './WelcomeBalanceInput';
+import {Image} from 'react-native';
+import {Container, ImageContainer} from './styles';
+
+import Logo from '../../assets/logo-white.png';
 
 const Welcome = ({navigation}) => {
   const [value, setValue] = useState(0);

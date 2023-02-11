@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Botao = styled.TouchableOpacity`
+export const Conainer = styled.View``;
+
+export const PhotoModal = styled.Modal``;
+
+export const Button = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.asphalt};
   width: 50px;
   height: 50px;
@@ -15,7 +19,7 @@ export const ImageBG = styled.ImageBackground`
   justify-content: center;
 `;
 
-export const ContainerBotoes = styled.View`
+export const ContainerButton = styled.View`
   flex: 0;
   flex-direction: row;
   justify-content: space-between;
@@ -26,6 +30,4 @@ export const ContainerBotoes = styled.View`
   padding: 0px 50px;
 `;
 
-export const BotaoDelete = styled.TouchableOpacity``;
-
-export const BotaoCheck = styled.TouchableOpacity``;
+export const ButtonAction = styled.TouchableOpacity``;

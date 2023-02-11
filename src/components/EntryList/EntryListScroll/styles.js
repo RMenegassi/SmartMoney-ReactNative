@@ -4,4 +4,4 @@ export const Scroll = styled.SafeAreaView`
   max-height: 130px;
 `;
 
-export const Botao = styled.TouchableOpacity``;
+export const Button = styled.TouchableOpacity``;

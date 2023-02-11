@@ -1,8 +1,10 @@
 import firestore from '@react-native-firebase/firestore';
-import moment from '../vendors/moment';
-import {Alert} from 'react-native';
 
 import {getUserAuth} from './Auth';
+
+import moment from '../vendors/moment';
+
+import {Alert} from 'react-native';
 
 export const getEntries = async (days, category) => {
   const userAuth = await getUserAuth();
@@ -33,7 +35,7 @@ export const getEntries = async (days, category) => {
     entries = entries.filter(entry => entry.category.id === category.id);
   }
 
-  console.log('getLastEntries :: loaded ', JSON.stringify(entries));
+  //console.log('getLastEntries :: loaded ', JSON.stringify(entries));
 
   return entries;
 };
@@ -41,13 +43,13 @@ export const getEntries = async (days, category) => {
 export const addEntry = async entry => {
   const userAuth = await getUserAuth();
   let data = {};
-  console.log('entry  ', entry);
+  //console.log('entry  ', entry);
 
   try {
     data = {
-      entryAt: entry.entryAt,
-      dateString: entry.dateString,
       amount: entry.amount,
+      entryAt: entry.entryAt,
+      dateString: entry.entryAt.toLocaleDateString('pt-BR'),
       description: entry.description || null,
       latitude: entry.latitude,
       longitude: entry.longitude,
@@ -60,10 +62,9 @@ export const addEntry = async entry => {
 
     await firestore().collection('entries').add(data);
 
-    console.log('addEntry :: data: ', JSON.stringify(data));
+    //console.log('addEntry :: data: ', JSON.stringify(data));
   } catch (error) {
     console.error('addEntry :: error on save object: ', JSON.stringify(data));
-    console.log(error);
     Alert.alert('Erro', 'Houve um erro ao salvar este lançamento.');
   }
 
@@ -82,7 +83,7 @@ export const updateEntry = async entry => {
 
     await firestore().collection('entries').doc(entry.id).update(data);
 
-    console.log('updateEntry :: data: ', JSON.stringify(data));
+    //console.log('updateEntry :: data: ', JSON.stringify(data));
   } catch (error) {
     console.error(
       'updateEntry :: error on uptade object: ',

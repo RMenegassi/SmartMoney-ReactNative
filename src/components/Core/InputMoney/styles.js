@@ -15,12 +15,12 @@ export const ContainerInput = styled.View`
   padding: 5px 20px;
 `;
 
-export const Botao = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 `;
 
-export const TextoCifrao = styled.Text`
+export const TextButton = styled.Text`
   color: ${props => (props.positivo ? theme.colors.green : theme.colors.red)};
   font-weight: 500;
   font-size: 25px;

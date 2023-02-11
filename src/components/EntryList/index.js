@@ -1,10 +1,11 @@
 import React from 'react';
 
-import EntryListList from './EntryListList';
+import useEntries from '../../hooks/useEntries';
+
+import EntryListScroll from './EntryListScroll';
 import DataList from '../Core/DataList';
 
 import {Title} from './styles';
-import useEntries from '../../hooks/useEntries';
 
 const EntryList = ({days = 7, category, onPressActionButton, isMain}) => {
   const [entries] = useEntries(days, category);
@@ -16,7 +17,7 @@ const EntryList = ({days = 7, category, onPressActionButton, isMain}) => {
       actionButtonText={true}
       onPressActionButton={onPressActionButton}>
       <Title>Últimos Lançamentos</Title>
-      <EntryListList dados={entries} />
+      <EntryListScroll data={entries} />
     </DataList>
   );
 };

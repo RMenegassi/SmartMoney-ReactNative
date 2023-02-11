@@ -1,7 +1,9 @@
 import firestore from '@react-native-firebase/firestore';
+
+import {getUserAuth} from './Auth';
+
 import moment from '../vendors/moment';
 import _ from 'lodash';
-import {getUserAuth} from './Auth';
 
 export const getBalance = async (untilDays = 0) => {
   const userAuth = await getUserAuth();
@@ -77,7 +79,7 @@ export const getBalanceSumByCategory = async (days, showOthers = true) => {
     ];
     entries = [...data1, ...data2];
   }
-  console.log('getBalanceSumByCategory :: ', JSON.stringify(entries));
+  //console.log('getBalanceSumByCategory :: ', JSON.stringify(entries));
 
   return entries;
 };

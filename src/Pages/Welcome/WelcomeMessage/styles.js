@@ -9,7 +9,7 @@ export const Title = styled.Text`
   margin-top: 20px;
 `;
 
-export const Texto = styled.Text`
+export const Text = styled.Text`
   color: white;
   font-size: 18px;
   text-align: center;

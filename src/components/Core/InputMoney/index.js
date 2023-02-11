@@ -2,15 +2,15 @@ import React from 'react';
 
 import CurrencyInput from 'react-native-currency-input';
 
-import {Container, ContainerInput, Botao, TextoCifrao} from './styles';
+import {Container, ContainerInput, Button, TextButton} from './styles';
 
 const InputMoney = ({value, setValue, positive, setPositive}) => {
   return (
     <Container>
       <ContainerInput>
-        <Botao onPress={setPositive ? () => setPositive(!positive) : () => {}}>
-          <TextoCifrao positivo={positive}>R$</TextoCifrao>
-        </Botao>
+        <Button onPress={setPositive ? () => setPositive(!positive) : () => {}}>
+          <TextButton positivo={positive}>R$</TextButton>
+        </Button>
 
         <CurrencyInput
           value={value}

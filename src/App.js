@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Theme} from './styles/Theme';
-
 import Routes from './Routes';
+
+import {Theme} from './styles/Theme';
 
 const App = () => {
   return (

@@ -1,5 +1,4 @@
 import {useState, useCallback} from 'react';
-
 import {useFocusEffect} from '@react-navigation/native';
 
 import {

@@ -1,13 +1,14 @@
 import React from 'react';
+
 import {useNavigation} from '@react-navigation/native';
+import {useBalance} from '../../hooks/useBalance';
+
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import BalancePanelLabel from './BalancePanelLabel';
 
-import {useBalance} from '../../hooks/useBalance';
-
-import {Container, Botao} from './styles';
+import {Container, Button} from './styles';
 
 import {theme} from '../../styles/Theme';
 
@@ -21,9 +22,9 @@ const BalancePanel = () => {
       <LinearGradient colors={[theme.colors.violet, theme.colors.blue]}>
         <BalancePanelLabel currentBalance={currentBalance} />
       </LinearGradient>
-      <Botao onPress={() => navigation.navigate('NewEntry')}>
+      <Button onPress={() => navigation.navigate('NewEntry')}>
         <Icon name="add" size={40} color="white" />
-      </Botao>
+      </Button>
     </Container>
   );
 };

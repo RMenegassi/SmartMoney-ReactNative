@@ -15,12 +15,12 @@ export const ButtonContainer = styled.View`
   margin: 0px 20px;
 `;
 
-export const Botao = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   padding: 10px 30px;
   border: 1px solid gray;
   border-radius: 150px;
 `;
 
-export const Texto = styled.Text`
+export const Text = styled.Text`
   color: gray;
 `;

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Botao = styled.TouchableOpacity`
+export const Container = styled.View``;
+
+export const Button = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.red};
   width: 50px;
   height: 50px;

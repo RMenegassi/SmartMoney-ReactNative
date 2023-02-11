@@ -1,27 +1,28 @@
-import {FlatList} from 'react-native';
 import React from 'react';
+
 import {useNavigation} from '@react-navigation/native';
 
 import EntryListItem from './EntryListItem';
 
-import {Scroll, Botao} from './styles';
+import {FlatList} from 'react-native';
+import {Scroll, Button} from './styles';
 
-const EntryListList = ({dados}) => {
+const EntryListList = ({data}) => {
   const navigation = useNavigation();
 
   return (
     <Scroll>
       <FlatList
-        data={dados}
+        data={data}
         keyExtractor={item => item.id}
         renderItem={({item, index}) => (
-          <Botao onPress={() => navigation.navigate('NewEntry', {item})}>
+          <Button onPress={() => navigation.navigate('NewEntry', {item})}>
             <EntryListItem
               entry={item}
               isFirstItem={index === 0}
-              isLastItem={index === dados.length - 1}
+              isLastItem={index === data.length - 1}
             />
-          </Botao>
+          </Button>
         )}
       />
     </Scroll>

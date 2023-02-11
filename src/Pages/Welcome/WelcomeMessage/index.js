@@ -1,15 +1,15 @@
 import React from 'react';
 
-import {Container, Title, Texto} from './styles';
+import {Container, Title, Text} from './styles';
 
 const WelcomeMessage = () => {
   return (
     <Container>
       <Title>Olá</Title>
-      <Texto>
+      <Text>
         Para começar a usar o Smart Money, você precisa informar o saldo atual.
         Vamos lá?
-      </Texto>
+      </Text>
     </Container>
   );
 };

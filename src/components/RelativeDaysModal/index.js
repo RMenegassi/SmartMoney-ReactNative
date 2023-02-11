@@ -1,9 +1,9 @@
-import {FlatList} from 'react-native';
 import React from 'react';
 
 import ActionFooter, {ActionPrimaryButton} from '../Core/ActionFooter';
 
-import {Container, DaysModal, Botao, Texto} from './styles';
+import {FlatList} from 'react-native';
+import {Container, DaysModal, Button, Text} from './styles';
 
 const RelativeDaysModal = ({isVisible, setVisible, onConfirm}) => {
   const relativeDays = [1, 3, 7, 15, 21, 30, 45, 60, 90, 180, 365];
@@ -15,13 +15,13 @@ const RelativeDaysModal = ({isVisible, setVisible, onConfirm}) => {
           data={relativeDays}
           keyExtractor={item => item.toString()}
           renderItem={({item}) => (
-            <Botao
+            <Button
               onPress={() => {
                 onConfirm(item);
                 setVisible(false);
               }}>
-              <Texto>{`${item} dias`}</Texto>
-            </Botao>
+              <Text>{`${item} dias`}</Text>
+            </Button>
           )}
         />
       </Container>

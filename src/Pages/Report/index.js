@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
 import BalanceLabel from '../../components/BalanceLabel';
-import EntrySummary from '../../components/EntrySummary';
-import EntryList from '../../components/EntryList';
 import RelativeDaysModal from '../../components/RelativeDaysModal';
 import RelativeCategoryModal from '../../components/RelativeCategoryModal';
+import EntrySummary from '../../components/EntrySummary';
+import EntryList from '../../components/EntryList';
 import ActionFooter, {
   ActionPrimaryButton,
 } from '../../components/Core/ActionFooter';
@@ -13,8 +13,8 @@ import {
   Container,
   ContainerContent,
   ButtonContainer,
-  Botao,
-  Texto,
+  Button,
+  Text,
 } from './styles';
 
 const Report = ({navigation}) => {
@@ -32,12 +32,12 @@ const Report = ({navigation}) => {
       <ContainerContent>
         <BalanceLabel />
         <ButtonContainer>
-          <Botao onPress={() => setCategoryModalVisible(true)}>
-            <Texto>{category.name}</Texto>
-          </Botao>
-          <Botao onPress={() => setDaysModalVisible(true)}>
-            <Texto>Últimos {relativeDays} dias</Texto>
-          </Botao>
+          <Button onPress={() => setCategoryModalVisible(true)}>
+            <Text>{category.name}</Text>
+          </Button>
+          <Button onPress={() => setDaysModalVisible(true)}>
+            <Text>Últimos {relativeDays} dias</Text>
+          </Button>
         </ButtonContainer>
         <RelativeDaysModal
           isVisible={daysModalVisible}

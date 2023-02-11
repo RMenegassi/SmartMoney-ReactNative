@@ -1,16 +1,16 @@
 import React from 'react';
 
-import {Container} from './styles';
-
 import PieChart from 'react-native-pie-chart';
 
-const EntrySummaryGraph = ({dados}) => {
-  const series = dados.map(item => item.amount);
-  const sliceColor = dados.map(item => item.category.color);
+import {Container} from './styles';
+
+const EntrySummaryGraph = ({data}) => {
+  const series = data.map(item => item.amount);
+  const sliceColor = data.map(item => item.category.color);
 
   return (
     <Container>
-      {dados[0] && (
+      {data[0] && (
         <PieChart
           widthAndHeight={130}
           series={series}
@@ -20,8 +20,6 @@ const EntrySummaryGraph = ({dados}) => {
           coverFill={'#34495e'}
         />
       )}
-      {console.log('dados ::::::', dados[0])}
-      {console.log('dados[0] existe ::::', dados[0] ? 'exite' : 'nao existe')}
     </Container>
   );
 };

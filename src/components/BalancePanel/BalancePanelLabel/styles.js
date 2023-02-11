@@ -12,7 +12,7 @@ export const Title = styled.Text`
   font-size: 20px;
 `;
 
-export const Saldo = styled.Text`
+export const Balance = styled.Text`
   color: white;
   font-size: 45px;
   font-weight: 200;

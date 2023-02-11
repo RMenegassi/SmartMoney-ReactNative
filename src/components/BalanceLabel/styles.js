@@ -11,7 +11,7 @@ export const Title = styled.Text`
   margin-bottom: 10px;
 `;
 
-export const Saldo = styled.Text`
+export const Balance = styled.Text`
   font-size: 25px;
   color: white;
   padding: 10px;

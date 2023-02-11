@@ -1,16 +1,17 @@
-import {View, Platform, PermissionsAndroid, Modal} from 'react-native';
 import React, {useState} from 'react';
 
 import {launchCamera} from 'react-native-image-picker';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {Platform, PermissionsAndroid} from 'react-native';
 import {
-  Botao,
+  Conainer,
+  PhotoModal,
+  Button,
   ImageBG,
-  ContainerBotoes,
-  BotaoDelete,
-  BotaoCheck,
+  ContainerButton,
+  ButtonAction,
 } from './styles';
 
 const NewEntryPhoto = ({photo, setPhoto}) => {
@@ -70,7 +71,7 @@ const NewEntryPhoto = ({photo, setPhoto}) => {
     let isStoragePermitted = await requestExternalWritePermission();
     if (isCameraPermitted && isStoragePermitted) {
       launchCamera(options, response => {
-        console.log('Response = ', response);
+        //console.log('Response = ', response);
 
         setPhoto(response.assets[0].uri);
       });
@@ -83,22 +84,22 @@ const NewEntryPhoto = ({photo, setPhoto}) => {
   };
 
   return (
-    <View>
-      <Botao onPress={photo ? () => setVisible(true) : () => captureImage()}>
+    <Conainer>
+      <Button onPress={photo ? () => setVisible(true) : () => captureImage()}>
         <Icon name="photo-camera" size={30} color="white" />
-      </Botao>
-      <Modal animationType="slide" transparent={false} visible={visible}>
+      </Button>
+      <PhotoModal animationType="slide" transparent={false} visible={visible}>
         <ImageBG source={{uri: photo}} resizeMode="cover" />
-        <ContainerBotoes>
-          <BotaoDelete onPress={onDeletePress}>
+        <ContainerButton>
+          <ButtonAction onPress={onDeletePress}>
             <Icon name="delete" size={50} color="white" />
-          </BotaoDelete>
-          <BotaoCheck onPress={() => setVisible(false)}>
+          </ButtonAction>
+          <ButtonAction onPress={() => setVisible(false)}>
             <Icon name="check" size={50} color="white" />
-          </BotaoCheck>
-        </ContainerBotoes>
-      </Modal>
-    </View>
+          </ButtonAction>
+        </ContainerButton>
+      </PhotoModal>
+    </Conainer>
   );
 };
 

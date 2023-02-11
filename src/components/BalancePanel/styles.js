@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.View``;
 
-export const Botao = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.green};
   width: 50px;
   height: 50px;

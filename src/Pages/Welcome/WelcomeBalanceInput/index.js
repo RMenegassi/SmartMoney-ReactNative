@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
-
-import {Container, Texto} from './styles';
+import React from 'react';
 
 import InputMoney from '../../../components/Core/InputMoney';
+
+import {Container, Text} from './styles';
 
 const WelcomeBalanceInput = ({value, setValue, positive, setPositive}) => {
   return (
     <Container>
-      <Texto>Informe seu saldo</Texto>
+      <Text>Informe seu saldo</Text>
       <InputMoney
         value={value}
         setValue={setValue}

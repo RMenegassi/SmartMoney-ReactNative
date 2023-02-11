@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {ActivityIndicator, StatusBar} from 'react-native';
-
 import {Container} from './styles';
 
 import {theme} from '../../styles/Theme';

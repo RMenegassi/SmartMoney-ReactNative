@@ -1,27 +1,21 @@
 import React, {useState} from 'react';
+
 import {useNavigation} from '@react-navigation/native';
+import {addEntry, updateEntry} from '../../services/Entries';
 
 import BalanceLabel from '../../components/BalanceLabel';
 import InputMoney from '../../components/Core/InputMoney';
-import NewEntyrCategory from './NewEntryCategory';
+import NewEntryCategory from './NewEntryCategory';
 import NewEntryDate from './NewEntryDate';
 import NewEntryAddress from './NewEntryAddress';
 import NewEntryPhoto from './NewEntryPhoto';
 import NewEntryDelete from './NewEntryDelete';
-
 import ActionFooter, {
   ActionPrimaryButton,
   ActionSecondaryButton,
 } from '../../components/Core/ActionFooter';
 
-import {addEntry, updateEntry} from '../../services/Entries';
-
-import {
-  Container,
-  ContainerPrincipal,
-  ContainerSecundario,
-  ContainerBotoes,
-} from './styles';
+import {Container, ContainerPrincipal, ContainerButtons} from './styles';
 
 const NewEntry = ({route}) => {
   const navigation = useNavigation();
@@ -38,26 +32,25 @@ const NewEntry = ({route}) => {
         photo: null,
       };
 
-  const [valor, setValor] = useState(entry.amount);
-  const [categoria, setCategoria] = useState(
+  const [value, setValue] = useState(entry.amount);
+  const [category, setCategory] = useState(
     entry.category || {id: null, name: 'Selecione'},
   );
   const [dataEntry, setDataEntry] = useState(entry.entryAt);
   const [latitude, setLatitude] = useState(entry.latitude);
   const [longitude, setLongitude] = useState(entry.longitude);
-  const [endereco, setEndereco] = useState(entry.address);
+  const [address, setAddress] = useState(entry.address);
   const [photo, setPhoto] = useState(entry.photo);
-  const [positivo, setPositivo] = useState(entry.amount >= 0);
+  const [positive, setPositive] = useState(entry.amount >= 0);
 
   const saveEntry = () => {
     const item = {
-      amount: positivo ? valor : valor * -1,
-      category: categoria,
+      amount: positive ? value : value * -1,
+      category: category,
       entryAt: dataEntry,
-      dateString: String(dataEntry),
       latitude: latitude,
       longitude: longitude,
-      address: endereco,
+      address: address,
       photo: photo,
     };
     if (entry.id) {
@@ -74,43 +67,41 @@ const NewEntry = ({route}) => {
       <ContainerPrincipal>
         <BalanceLabel />
         <InputMoney
-          value={valor}
-          setValue={setValor}
-          positive={positivo}
-          setPositive={setPositivo}
+          value={value}
+          setValue={setValue}
+          positive={positive}
+          setPositive={setPositive}
         />
-        <NewEntyrCategory
-          categoria={categoria}
-          setCategoria={setCategoria}
-          positivo={positivo}
+        <NewEntryCategory
+          category={category}
+          setCategory={setCategory}
+          positive={positive}
         />
-        <ContainerBotoes>
+        <ContainerButtons>
           <NewEntryDate value={dataEntry} setDataEntry={setDataEntry} />
           <NewEntryAddress
-            address={endereco}
+            address={address}
             onChange={({latitude, longitude, address}) => {
               setLatitude(latitude);
               setLongitude(longitude);
-              setEndereco(address);
+              setAddress(address);
             }}
           />
           <NewEntryPhoto photo={photo} setPhoto={setPhoto} />
           <NewEntryDelete entry={entry} />
-        </ContainerBotoes>
+        </ContainerButtons>
       </ContainerPrincipal>
-      <ContainerSecundario>
-        <ActionFooter>
-          <ActionPrimaryButton
-            title={entry.id ? 'Salvar' : 'Adicionar'}
-            disabled={valor && categoria !== 'Selecione' ? false : true}
-            onPress={saveEntry}
-          />
-          <ActionSecondaryButton
-            title="Cancelar"
-            onPress={() => navigation.goBack()}
-          />
-        </ActionFooter>
-      </ContainerSecundario>
+      <ActionFooter>
+        <ActionPrimaryButton
+          title={entry.id ? 'Salvar' : 'Adicionar'}
+          disabled={value && category !== 'Selecione' ? false : true}
+          onPress={saveEntry}
+        />
+        <ActionSecondaryButton
+          title="Cancelar"
+          onPress={() => navigation.goBack()}
+        />
+      </ActionFooter>
     </Container>
   );
 };

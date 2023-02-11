@@ -1,20 +1,17 @@
 import React from 'react';
 
+import {currencyFormatter} from '../../../../vendors/currencyFormatter';
+
 import Svg, {Circle, Rect} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import moment from '../../../../vendors/moment';
-
-import {currencyFormatter} from '../../../../vendors/currencyFormatter';
-import {dateFormatter} from '../../../../vendors/dateFormatter';
-
 import {
   Container,
-  BoxDados,
+  BoxEntries,
   BoxPrincipal,
-  TextoPrincipal,
-  BoxSecundario,
-  TextoSecundario,
+  TextPrincipal,
+  BoxSecondary,
+  TextSecondary,
 } from './styles';
 
 const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
@@ -43,32 +40,30 @@ const EntryListItem = ({entry, isFirstItem, isLastItem}) => {
           strokeWidth={1.5}
         />
       </Svg>
-      <BoxDados>
+      <BoxEntries>
         <BoxPrincipal>
-          <TextoPrincipal>{entry.category.name}</TextoPrincipal>
-          <TextoPrincipal>{currencyFormatter(entry.amount)}</TextoPrincipal>
+          <TextPrincipal>{entry.category.name}</TextPrincipal>
+          <TextPrincipal>{currencyFormatter(entry.amount)}</TextPrincipal>
         </BoxPrincipal>
-        <BoxSecundario>
+        <BoxSecondary>
           {entry.entryAt && (
             <>
               <Icon name="access-time" size={13} color="gray" />
-              <TextoSecundario>
-                {dateFormatter(entry.dateString)}
-              </TextoSecundario>
+              <TextSecondary>{entry.dateString}</TextSecondary>
             </>
           )}
           {entry.address && (
             <>
               <Icon name="location-on" size={13} color="gray" />
-              <TextoSecundario>
+              <TextSecondary>
                 {entry.address.length > 25
                   ? entry.address.substring(0, 25 - 3) + '...'
                   : entry.address}
-              </TextoSecundario>
+              </TextSecondary>
             </>
           )}
-        </BoxSecundario>
-      </BoxDados>
+        </BoxSecondary>
+      </BoxEntries>
     </Container>
   );
 };

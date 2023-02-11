@@ -2,25 +2,25 @@ import React, {useState} from 'react';
 
 import RelativeCategoryModal from '../../../components/RelativeCategoryModal';
 
-import {Container, Botao, Texto} from './styles';
+import {Container, Button, Text} from './styles';
 
-const NewEntyrCategory = ({categoria, setCategoria, positivo}) => {
+const NewEntyrCategory = ({category, setCategory, positive}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const chooseItem = name => {
-    setCategoria(name);
+    setCategory(name);
     setModalVisible(!modalVisible);
   };
 
   return (
     <Container>
-      <Botao onPress={() => setModalVisible(!modalVisible)}>
-        <Texto>{categoria.name}</Texto>
-      </Botao>
+      <Button onPress={() => setModalVisible(!modalVisible)}>
+        <Text>{category.name}</Text>
+      </Button>
 
       <RelativeCategoryModal
         isVisible={modalVisible}
-        type={positivo}
+        type={positive}
         chooseItem={chooseItem}
         setVisible={setModalVisible}
       />

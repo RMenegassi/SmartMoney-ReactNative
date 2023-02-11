@@ -1,19 +1,19 @@
-import {Image} from 'react-native';
 import React, {useState} from 'react';
-
-import {
-  Container,
-  InputText,
-  BotaoEntrar,
-  TextoEntrar,
-  BotaoSignUp,
-  TextoSignUp,
-} from './styles';
-
-import logo from '../../assets/logo-white.png';
 
 import {signIn as login} from '../../services/Auth';
 import {isInitialized} from '../../services/Welcome';
+
+import {Image} from 'react-native';
+import {
+  Container,
+  InputText,
+  ButtonLogin,
+  TextLogin,
+  ButtonSignUp,
+  TextSignUp,
+} from './styles';
+
+import logo from '../../assets/logo-white.png';
 
 const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -63,15 +63,15 @@ const SignIn = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <BotaoEntrar onPress={onSubmit}>
-        <TextoEntrar>{loading ? 'Carregando...' : 'Entrar'}</TextoEntrar>
-      </BotaoEntrar>
-      <BotaoSignUp
+      <ButtonLogin onPress={onSubmit}>
+        <TextLogin>{loading ? 'Carregando...' : 'Entrar'}</TextLogin>
+      </ButtonLogin>
+      <ButtonSignUp
         onPress={() => {
           navigation.navigate('SignUp');
         }}>
-        <TextoSignUp>Criar uma conta</TextoSignUp>
-      </BotaoSignUp>
+        <TextSignUp>Criar uma conta</TextSignUp>
+      </ButtonSignUp>
     </Container>
   );
 };

@@ -1,12 +1,11 @@
-import {View, Alert} from 'react-native';
 import React from 'react';
-
-import {Botao} from './styles';
 
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import {Alert} from 'react-native';
+import {Container, Button} from './styles';
 
 const NewEntryAddress = ({address, onChange}) => {
   const getLocation = (latitude, longitude) => {
@@ -81,11 +80,11 @@ const NewEntryAddress = ({address, onChange}) => {
   };
 
   return (
-    <View>
-      <Botao onPress={onButtonPress}>
+    <Container>
+      <Button onPress={onButtonPress}>
         <Icon name="person-pin" size={30} color="white" />
-      </Botao>
-    </View>
+      </Button>
+    </Container>
   );
 };
 

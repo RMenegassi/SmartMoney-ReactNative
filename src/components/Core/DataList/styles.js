@@ -8,19 +8,19 @@ export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.asphalt};
 `;
 
-export const BoxBotoes = styled.View`
+export const BoxButtons = styled.View`
   flex-direction: row;
   justify-content: space-between;
   padding: 0 15px;
   margin-top: 10px;
 `;
 
-export const Botao = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   align-items: center;
   flex-direction: row;
 `;
 
-export const Texto = styled.Text`
+export const Text = styled.Text`
   font-size: 12px;
   color: white;
 `;

@@ -1,28 +1,24 @@
-import {FlatList} from 'react-native';
 import React from 'react';
-
-import Svg, {Circle} from 'react-native-svg';
-
-import {
-  Scroll,
-  ContainerLista,
-  ContainerItens,
-  TextoCategory,
-  TextoAmount,
-} from './styles';
 
 import {currencyFormatter} from '../../../vendors/currencyFormatter';
 
-const EntrySummaryList = ({dados}) => {
-  const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
+import Svg, {Circle} from 'react-native-svg';
+
+import {FlatList} from 'react-native';
+import {
+  Scroll,
+  ContainerList,
+  ContainerItens,
+  TextCategory,
+  TextAmount,
+} from './styles';
+
+const EntrySummaryList = ({data}) => {
   return (
     <Scroll>
-      <ContainerLista>
+      <ContainerList>
         <FlatList
-          data={dados}
+          data={data}
           keyExtractor={item => item.category.id}
           renderItem={({item}) => (
             <ContainerItens>
@@ -37,12 +33,12 @@ const EntrySummaryList = ({dados}) => {
                 />
               </Svg>
 
-              <TextoCategory>{item.category.name}</TextoCategory>
-              <TextoAmount>{currencyFormatter(item.amount)}</TextoAmount>
+              <TextCategory>{item.category.name}</TextCategory>
+              <TextAmount>{currencyFormatter(item.amount)}</TextAmount>
             </ContainerItens>
           )}
         />
-      </ContainerLista>
+      </ContainerList>
     </Scroll>
   );
 };

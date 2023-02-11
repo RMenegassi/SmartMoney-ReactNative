@@ -1,6 +1,7 @@
+import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
+
 import {Alert} from 'react-native';
 
 export const isLogged = async () => {

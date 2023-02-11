@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 export const Scroll = styled.SafeAreaView`
   flex: 1;
-
   justify-content: center;
 `;
 
-export const ContainerLista = styled.View``;
+export const ContainerList = styled.View``;
 
-export const TextoCategory = styled.Text`
+export const TextCategory = styled.Text`
   color: white;
 `;
-export const TextoAmount = styled.Text`
+export const TextAmount = styled.Text`
   color: white;
   flex: 1;
   text-align: right;

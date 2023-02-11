@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {Container, BoxBotoes, Botao, Texto} from './styles';
+import {Container, BoxButtons, Button, Text} from './styles';
 
 const DataList = ({
   children,
@@ -15,20 +16,20 @@ const DataList = ({
       {children}
 
       {(actionLabelText || actionButtonText) && (
-        <BoxBotoes>
+        <BoxButtons>
           {actionLabelText && (
-            <Botao>
-              <Texto>Últimos {actionLabelText} dias</Texto>
-            </Botao>
+            <Button>
+              <Text>Últimos {actionLabelText} dias</Text>
+            </Button>
           )}
 
           {actionButtonText && isMain && (
-            <Botao onPress={onPressActionButton}>
+            <Button onPress={onPressActionButton}>
               <Icon name="add-box" color="white" size={10} />
-              <Texto>Ver mais</Texto>
-            </Botao>
+              <Text>Ver mais</Text>
+            </Button>
           )}
-        </BoxBotoes>
+        </BoxButtons>
       )}
     </Container>
   );

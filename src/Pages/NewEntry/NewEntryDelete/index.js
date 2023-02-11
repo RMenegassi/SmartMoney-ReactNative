@@ -1,12 +1,12 @@
-import {Alert, View} from 'react-native';
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 
+import {useNavigation} from '@react-navigation/native';
 import {deleteEntry} from '../../../services/Entries';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {Botao} from './styles';
+import {Alert} from 'react-native';
+import {Container, Button} from './styles';
 
 const NewEntryDelete = ({entry}) => {
   const navigation = useNavigation();
@@ -30,14 +30,14 @@ const NewEntryDelete = ({entry}) => {
   };
 
   return (
-    <View>
-      <Botao
+    <Container>
+      <Button
         disabled={entry.id ? false : true}
         onPress={onDelete}
         style={{opacity: entry.id ? 1 : 0.2}}>
         <Icon name="delete" size={30} color="white" />
-      </Botao>
-    </View>
+      </Button>
+    </Container>
   );
 };
 

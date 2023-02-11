@@ -7,7 +7,7 @@ export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.background};
 `;
 
-export const Botao = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.asphalt};
 
   border-radius: 8px;
@@ -15,7 +15,7 @@ export const Botao = styled.TouchableOpacity`
   padding: 20px 0;
 `;
 
-export const Texto = styled.Text`
+export const Text = styled.Text`
   color: white;
   text-align: center;
   font-size: 20px;

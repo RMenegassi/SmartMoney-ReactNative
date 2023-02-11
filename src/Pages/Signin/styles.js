@@ -19,7 +19,7 @@ export const InputText = styled.TextInput`
   margin-top: 20px;
 `;
 
-export const BotaoEntrar = styled.TouchableOpacity`
+export const ButtonLogin = styled.TouchableOpacity`
   height: 44px;
   width: 80%;
   background-color: ${({theme}) => theme.colors.red};
@@ -29,17 +29,17 @@ export const BotaoEntrar = styled.TouchableOpacity`
   margin-top: 10px;
 `;
 
-export const TextoEntrar = styled.Text`
+export const TextLogin = styled.Text`
   color: white;
   font-weight: bold;
   font-size: 16px;
 `;
 
-export const BotaoSignUp = styled.TouchableOpacity`
+export const ButtonSignUp = styled.TouchableOpacity`
   margin-top: 10px;
 `;
 
-export const TextoSignUp = styled.Text`
+export const TextSignUp = styled.Text`
   color: ${({theme}) => theme.colors.blueDark};
   text-decoration: underline;
 `;

@@ -1,16 +1,17 @@
-import {Modal, FlatList} from 'react-native';
 import React from 'react';
+
 import useCategories from '../../hooks/useCategories';
 
 import ActionFooter, {ActionPrimaryButton} from '../Core/ActionFooter';
 
-import {ContainerModal, BotaoItem, TextoModal} from './styles';
+import {FlatList} from 'react-native';
+import {CategoryModal, ContainerModal, ButtonItem, TextModal} from './styles';
 
 const RelativeCategoryModal = ({isVisible, type, chooseItem, setVisible}) => {
   const [Categories] = useCategories(type);
 
   return (
-    <Modal
+    <CategoryModal
       animationType="slide"
       transparent={false}
       visible={isVisible}
@@ -22,9 +23,9 @@ const RelativeCategoryModal = ({isVisible, type, chooseItem, setVisible}) => {
           data={Categories}
           keyExtractor={item => item.id}
           renderItem={({item}) => (
-            <BotaoItem onPress={() => chooseItem(item)}>
-              <TextoModal color={item.color}>{item.name}</TextoModal>
-            </BotaoItem>
+            <ButtonItem onPress={() => chooseItem(item)}>
+              <TextModal color={item.color}>{item.name}</TextModal>
+            </ButtonItem>
           )}
         />
       </ContainerModal>
@@ -34,7 +35,7 @@ const RelativeCategoryModal = ({isVisible, type, chooseItem, setVisible}) => {
           onPress={() => setVisible(!isVisible)}
         />
       </ActionFooter>
-    </Modal>
+    </CategoryModal>
   );
 };
 

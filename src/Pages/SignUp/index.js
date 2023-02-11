@@ -1,16 +1,16 @@
-import {Image} from 'react-native';
 import React, {useState} from 'react';
 
+import {signUp as register} from '../../services/Auth';
+
+import {Image} from 'react-native';
 import {
   Container,
   InputText,
-  BotaoEntrar,
-  TextoEntrar,
-  BotaoSignUp,
-  TextoSignUp,
+  ButtonCreate,
+  TextCreate,
+  ButtonSignUp,
+  TextSignUp,
 } from './styles';
-
-import {signUp as register} from '../../services/Auth';
 
 import logo from '../../assets/logo-white.png';
 
@@ -70,15 +70,15 @@ const SignUp = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <BotaoEntrar onPress={onSubmit}>
-        <TextoEntrar>{loading ? 'Carregando...' : 'Criar conta'}</TextoEntrar>
-      </BotaoEntrar>
-      <BotaoSignUp
+      <ButtonCreate onPress={onSubmit}>
+        <TextCreate>{loading ? 'Carregando...' : 'Criar conta'}</TextCreate>
+      </ButtonCreate>
+      <ButtonSignUp
         onPress={() => {
           navigation.navigate('SignIn');
         }}>
-        <TextoSignUp>Fazer Login</TextoSignUp>
-      </BotaoSignUp>
+        <TextSignUp>Fazer Login</TextSignUp>
+      </ButtonSignUp>
     </Container>
   );
 };

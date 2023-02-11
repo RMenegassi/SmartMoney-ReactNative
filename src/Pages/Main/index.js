@@ -1,13 +1,13 @@
 import React from 'react';
 
+import {cleanUserAuth} from '../../services/Auth';
+
 import BalancePanel from '../../components/BalancePanel';
 import EntrySummary from '../../components/EntrySummary';
 import EntryList from '../../components/EntryList';
 import ActionFooter, {
   ActionSecondaryButton,
 } from '../../components/Core/ActionFooter';
-
-import {cleanUserAuth} from '../../services/Auth';
 
 import {Container, ContainerContent} from './styles';
 

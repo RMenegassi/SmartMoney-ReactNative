@@ -1,6 +1,5 @@
 import {useCallback, useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-
 import {getBalanceSumByDate} from '../services/Balance';
 
 const useBalanceSumByDate = (days = 7) => {

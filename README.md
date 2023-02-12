@@ -31,7 +31,7 @@ This app was made with the help of the "Smart Money" course by [Dev Samurai](htt
  - [React Native](https://github.com/facebook/react-native)
  - [React Navigation](https://github.com/react-navigation/react-navigation)
  - [Firebase](https://github.com/invertase/react-native-firebase)
- - [Async storage](https://github.com/react-native-async-storage/async-storage)
+ - [Async Storage](https://github.com/react-native-async-storage/async-storage)
  - [Geolocation](https://github.com/michalchudziak/react-native-geolocation) & [Geocoding](https://github.com/marlove/react-native-geocoding#readme)
  - [Date Picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
  - [Image Picker](https://github.com/react-native-image-picker/react-native-image-picker)

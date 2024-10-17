@@ -22,7 +22,7 @@
 </div>
 
 ## About
-Smart Money is an app for controlling expenses. Integrated with Firebase, it has an user authentication. The application allows you to create, edit and delete items,  with the possibility to add a category, a date, an address and a photo to each item. In addition, it allows you to filter the view based on date and category.
+Smart Money is an app to manage your expenses.
 
 This app was made with the help of the "Smart Money" course by [Dev Samurai](https://devsamurai.com.br).
 
